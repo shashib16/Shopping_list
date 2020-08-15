@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded',function(){
 // taking reference of the 
 // node in which we are about to 
 
@@ -43,31 +44,46 @@ window.onresize = function() {
         //  4.
         //Create three new elements — a list item
         //(<li>), <span>, and <button>, and store them in variables
-     var list=document.createElement("LI");
+       
+        
+        var list=document.createElement("LI");
      var Uspan=document.createElement("span");
        var Dbutton=document.createElement("button");
-                 
-        //  9.
-        //   Append the list item as a child of the list.
-        
-          Ulist.appendChild(list)
+                        
+         
         //  5. 
        //  Inside the function body, start off by storing the
         //  current value of the input element in a variable.
        var content_by_custormer=document.getElementById("inputcontent").value;
         console.log(content_by_custormer)
            
-           
+        // If condition have used if not item have been inserted 
+        // user will be altered "You have not entered any value"
+     
+
+       try{
+        if(content_by_custormer==="")
+                            throw "Please enter Item name"
+       }
+          catch(err){
+          alert(err);
+          document.getElementById("inputcontent").value=""
+        }
+           if(content_by_custormer!=""){
+                    if(content_by_custormer){
+             //  9.
+        //   Append the list item as a child of the list.
+            Ulist.appendChild(list)
         //  8.
     //  Set the text content of the span to the input 
     //  element value you saved earlier, and the text content 
     //  of the button to 'Delete'.
         Uspan.textContent=content_by_custormer;
+        // console.log(Uspan)
         
         //    7.
           //Append the span and the button as children of the list item.
            list.appendChild(Uspan);
-           
            
            //6. 
         //    empty the input element by 
@@ -76,20 +92,18 @@ window.onresize = function() {
         //   content_by_custormer.innerHTML=""
         //   const Dbutton=document.createElement("button");
 
-        
-
     //    7.
     //       //Append the span and the button as children of the list item.
     //  list.appendChild(Uspan);
      list.appendChild(Dbutton);
-   
-
+           }
+          }
     //  8.
     //  Set the text content of the span to the input 
     //  element value you saved earlier, and the text content 
     //  of the button to 'Delete'.
           Dbutton.textContent="Delete"
-
+            
         //   10.
         // an event handler to the delete button,
          //  so that when clicked it will delete the
@@ -113,3 +127,8 @@ window.onresize = function() {
      
      Uinput.focus();
     }
+
+
+
+});
+
